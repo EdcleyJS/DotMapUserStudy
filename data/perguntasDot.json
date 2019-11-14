@@ -1,0 +1,209 @@
+[
+  {
+    "id": "001",
+    "question_text": "From 0 to 100, what is the chance of rain in Recife below 100mm?",
+    "op": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "highlights": [
+      "Recife"
+    ],
+    "answer": 47,
+    "distance": {},
+    "variance": {},
+    "size": {}
+  },
+  {
+    "id": "002",
+    "question_text": "From 0 to 100, what is the chance of rain in the area of Jaboatão dos Guararapes over 100mm?",
+    "op": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "highlights": [
+      "Jaboatão dos Guararapes"
+    ],
+    "answer": 42,
+    "distance": {},
+    "variance": {},
+    "size": {}
+  },
+  {
+    "id": "003",
+    "question_text": "From 0 to 100, what is the chance of rain in the area of São Lourenço da Mata between 50 and 150mm?",
+    "op": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "highlights": [
+      "São Lourenço da Mata"
+    ],
+    "answer": 33,
+    "distance": {},
+    "variance": {},
+    "size": {}
+  },
+  {
+    "id": "004",
+    "question_text": "In which of the two cities is most likely to rain less than 100mm?",
+    "op": [
+      "Ipojuca",
+      "Cabo de Santo Agostinho"
+    ],
+    "highlights": [
+      "Ipojuca",
+      "Cabo de Santo Agostinho"
+    ],
+    "answer": "Ipojuca",
+    "distance": "Short",
+    "variance": {},
+    "size": {}
+  },
+  {
+    "id": "005",
+    "question_text": "In which of the two cities is most likely to rain less than 100mm?",
+    "op": [
+      "Recife",
+      "Santa Cruz"
+    ],
+    "highlights": [
+      "Recife",
+      "Santa Cruz"
+    ],
+    "answer": "Santa Cruz",
+    "distance": "Long",
+    "variance": {},
+    "size": {}
+  },
+  {
+    "id": "006",
+    "question_text": "In which of the two cities is most likely to rain more than 100mm?",
+    "op": [
+      "Sanharó",
+      "Petrolândia"
+    ],
+    "highlights": [
+      "Sanharó",
+      "Petrolândia"
+    ],
+    "answer": "Petrolândia",
+    "distance": {},
+    "variance": "Low",
+    "size": {}
+  },
+  {
+    "id": "007",
+    "question_text": "In which of the two cities is most likely to rain more than 100mm?",
+    "op": [
+      "Tacaratu",
+      "Araripina"
+    ],
+    "highlights": [
+      "Tacaratu",
+      "Araripina"
+    ],
+    "answer": "Araripina",
+    "distance": {},
+    "variance": "High",
+    "size": {}
+  },
+  {
+    "id": "008",
+    "question_text": "In which of the two cities is most likely to rain between 50 and 150mm?",
+    "op": [
+      "Saloá",
+      "Pombos"
+    ],
+    "highlights": [
+      "Saloá",
+      "Pombos"
+    ],
+    "answer": "Pombos",
+    "distance": {},
+    "variance": {},
+    "size": "Small"
+  },
+  {
+    "id": "009",
+    "question_text": "In which of the two cities is most likely to rain between 50 and 150mm?",
+    "op": [
+      "Sertânia",
+      "Parnamirim"
+    ],
+    "highlights": [
+      "Sertânia",
+      "Parnamirim"
+    ],
+    "answer": "Sertânia",
+    "distance": {},
+    "variance": {},
+    "size": "Large"
+  },
+  {
+    "id": "010",
+    "question_text": "Type the name of the area that is most likely to rain below 100mm?",
+    "op": [
+      ""
+    ],
+    "highlights": [
+      ""
+    ],
+    "answer": "Jatobá",
+    "distance": {},
+    "variance": {},
+    "size": {}
+  },
+  {
+    "id": "011",
+    "question_text": "Type the name of the area that is most likely to rain below 100mm?",
+    "op": [
+      ""
+    ],
+    "highlights": [
+      ""
+    ],
+    "answer": "Amaraji",
+    "distance": {},
+    "variance": {},
+    "size": {}
+  },
+  {
+    "id": "012",
+    "question_text": "What is the average rainfall in the area of Caruaru?",
+    "op": [
+      ""
+    ],
+    "highlights": [
+      ""
+    ],
+    "answer": 50,
+    "distance": {},
+    "variance": {},
+    "size": {}
+  },
+  {
+    "id": "013",
+    "question_text": "For rainfall from 40 to 150, can you identify any city whose distribution is different from its neighbors? If so, type the city name, if not type 'No'.",
+    "op": [
+      "Sim",
+      "Não"
+    ],
+    "highlights": [
+      ""
+    ],
+    "answer": "Sim",
+    "distance": {},
+    "variance": {},
+    "size": {}
+  }
+]
