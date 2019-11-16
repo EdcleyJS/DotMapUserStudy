@@ -430,5 +430,3 @@ function inicioDotTaxi(){
     }
   });
 }
-InicioDot();
-inicioDotTaxi();
