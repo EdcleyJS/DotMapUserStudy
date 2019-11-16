@@ -434,7 +434,3 @@ function inicioDotTaxi(){
     }
   });
 }
-$(document).finish(function () {
-  InicioDot();
-  inicioDotTaxi();
-});
