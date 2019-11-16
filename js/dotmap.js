@@ -189,6 +189,8 @@ function Vis03TutorialFunction(dataset){
 }
 
 function InicioDot(){
+  console.log(dataset);
+  console.log(database);
   var recife;
   var pointsdots = [];
   var xMin,yMin,xMax,yMax;
@@ -355,6 +357,8 @@ function inicioTaxi(dataset){
   infoTaxi.addTo(mapTaxi);
 }
 function inicioDotTaxi(){
+  console.log(datasettaxi);
+  console.log(databasetaxi);
   var recife;
   var pointsdots = [];
   var xMin,yMin,xMax,yMax;
@@ -430,3 +434,5 @@ function inicioDotTaxi(){
     }
   });
 }
+InicioDot();
+inicioDotTaxi();
