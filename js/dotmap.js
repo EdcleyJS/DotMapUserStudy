@@ -9,6 +9,27 @@ var myRendererTaxi = L.canvas({ padding: 0.5 });
 var LayerDotMap,LayerTaxi,pontos,pontos2,pontos3;
 var database,dots=[],dotsZ1=[],dotsZ2=[],dotsZ3=[],dotsTaxi=[],dotsZ1Taxi=[],dotsZ2Taxi=[],dotsZ3Taxi=[];
 
+d3.json("./data/perguntas.json",function(error,data){
+  novodataset=data;
+});
+d3.json("./data/dados.json",function(error,data){
+  database=data;
+  d3.json("./data/pe.json",function(error,dados){
+    dataset=dados;
+
+  });
+});
+d3.json("./data/pickup.json",function(error,data){
+  databasetaxi=data;
+  d3.json("./data/midtown.geojson",function(error,dados){
+    datasettaxi=dados;
+  });
+  databasetaxi = Object.keys(databasetaxi).map(function(key) {
+    return [databasetaxi[key]];
+  });
+});
+
+
 //-- MAPA DE PONTOS DA ETAPA DE PERGUNTAS AO USUÁRIO. --
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
