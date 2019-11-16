@@ -1,5 +1,23 @@
 var arr = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],clicks=0,d1 = new Date(),stepper1,stepper2,stepper3,stepper4,d4,list,d2,diff,post_url,request_method,form_data,forms;
-
+var novodataset,database,dataset,datasettaxi,databasetaxi;
+d3.json("./data/perguntas.json",function(error,data){
+  novodataset=data;
+});
+d3.json("./data/dados.json",function(error,data){
+  database=data;
+  d3.json("./data/pe.json",function(error,dados){
+    dataset=dados;
+  });
+});
+d3.json("./data/pickup.json",function(error,data){
+  databasetaxi=data;
+  d3.json("./data/midtown.geojson",function(error,dados){
+    datasettaxi=dados;
+  });
+  databasetaxi = Object.keys(databasetaxi).map(function(key) {
+    return [databasetaxi[key]];
+  });
+});
 $(document).ready(function () {
 	//perguntasT1=shuffle(perguntasT1);
 	//perguntasT2=shuffle(perguntasT2);
