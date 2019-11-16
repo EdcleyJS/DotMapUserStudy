@@ -189,10 +189,10 @@ function Vis03TutorialFunction(dataset){
 }
 
 function InicioDot(){
-var recife;
-var pointsdots = [];
-var xMin,yMin,xMax,yMax;
-var contdots=0;
+  var recife;
+  var pointsdots = [];
+  var xMin,yMin,xMax,yMax;
+  var contdots=0;
   L.geoJson(dataset,{
     onEachFeature: async function (feature, layer) {
         await sleep(3000);
@@ -265,7 +265,7 @@ var contdots=0;
     }
   });
 }
-
+InicioDot();
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
   maxZoom: 18,
@@ -355,10 +355,10 @@ function inicioTaxi(dataset){
   infoTaxi.addTo(mapTaxi);
 }
 function inicioDotTaxi(){
-var recife;
-var pointsdots = [];
-var xMin,yMin,xMax,yMax;
-var contdots=0;
+  var recife;
+  var pointsdots = [];
+  var xMin,yMin,xMax,yMax;
+  var contdots=0;
   L.geoJson(datasettaxi,{
     onEachFeature: async function (feature, layer) {
         await sleep(3000);
@@ -430,5 +430,4 @@ var contdots=0;
     }
   });
 }
-InicioDot();
 inicioDotTaxi();
