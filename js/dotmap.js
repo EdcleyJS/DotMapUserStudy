@@ -7,9 +7,9 @@ var gradesTaxi=[43,6000,12000,18000,24000,30000,36000,42000,54469];
 var myRenderer = L.canvas({ padding: 0.5 });
 var myRendererTaxi = L.canvas({ padding: 0.5 });
 var LayerDotMap,LayerTaxi,pontos,pontos2,pontos3;
-var database,dots=[],dotsZ1=[],dotsZ2=[],dotsZ3=[],dotsTaxi=[],dotsZ1Taxi=[],dotsZ2Taxi=[],dotsZ3Taxi=[];
+var dots=[],dotsZ1=[],dotsZ2=[],dotsZ3=[],dotsTaxi=[],dotsZ1Taxi=[],dotsZ2Taxi=[],dotsZ3Taxi=[];
 
-
+debugger
 //-- MAPA DE PONTOS DA ETAPA DE PERGUNTAS AO USUÁRIO. --
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -266,7 +266,6 @@ function InicioDot(){
     }
   });
 }
-debugger
 InicioDot();
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
