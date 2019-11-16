@@ -1,3 +1,25 @@
+var novodataset,database,dataset,datasettaxi,databasetaxi;
+d3.json("./data/perguntas.json",function(error,data){
+  novodataset=data;
+});
+d3.json("./data/dados.json",function(error,data){
+  database=data;
+  d3.json("./data/pe.json",function(error,dados){
+    dataset=dados;
+    console.log('leu');
+  });
+});
+d3.json("./data/pickup.json",function(error,data){
+  databasetaxi=data;
+  d3.json("./data/midtown.geojson",function(error,dados){
+    datasettaxi=dados;
+    console.log('leu2');
+  });
+  databasetaxi = Object.keys(databasetaxi).map(function(key) {
+    return [databasetaxi[key]];
+  });
+});
+
 var maior=0,menor=+Infinity;
 function distribuicaoNYC(id){
   var distdataMes=[];
