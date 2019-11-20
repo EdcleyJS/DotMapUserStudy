@@ -434,10 +434,10 @@ $(document).ready(function () {
 			    url: $(this).attr('action'),
 			    data : $(this).serialize(),
 			    success: function(result, status, request){
-			    	sucesso++;
-			    	refresh();
 			        console.log(nameform.id+" Estado atual ---\n" + status + "\nResultado: " + JSON.stringify(result));
-			        //end=true;
+			        //end=true;			    	
+			        sucesso++;
+			    	refresh();
 			    },
 			    error: function (request, status, erro) {
 			      	console.log(nameform.id+" Problema ocorrido: " + status + "\nDescrição: " + erro);
@@ -447,5 +447,10 @@ $(document).ready(function () {
 			    }
 		    });
 	    return false;
+	});
+	$('input[type=radio][name=inlineRadioOptions]').change(function() {
+	    if (this.value == 'Yes') {
+	        $('.alert').removeClass("show");
+	    }
 	});
 });
