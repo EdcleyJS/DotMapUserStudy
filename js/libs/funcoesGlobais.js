@@ -711,7 +711,7 @@ function geraperguntas(perguntas,index,vis){
   label.innerText= pergunta.question_text//[0];//"Pergunta 1 ?";
   var select = document.createElement("select");
   select.setAttribute('id',""+pergunta.id+vis);
-  select.setAttribute('name',""+pergunta.id+vis);
+  select.setAttribute('name',"pergunta"+pergunta.id+vis);
   select.setAttribute('class',"form-control");
   select.required=true;
   var opt= document.createElement("option");
