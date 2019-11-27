@@ -36,7 +36,7 @@ $(document).ready(function () {
 				inicioMedia(dataset);
 				Vis04TutorialFunction(dataset);
 			}
-			await sleep(460);
+			await sleep(660);
 		}
 	}
 	animacao();
