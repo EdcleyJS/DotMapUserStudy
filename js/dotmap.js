@@ -2,7 +2,6 @@ var novaDist,bounds,width,height,area,nump,cont,cor,p,markerCircle,opcoes=[],ano
 var mapVis03 = L.map('vis03').setView([-8.305448,-37.822426], 8);
 var mapDot = L.map('vis3').setView([-8.305448,-37.822426], 8);
 var mapTaxi = L.map('vistaxi').setView([40.752866,-73.986023], 13);
-//var gradesDot=[0,20,40,60,80,100,120,140,160];
 var gradesDot=[0,30,60,90,120,150,180,210,240];
 var gradesTaxi=[43,6000,12000,18000,24000,30000,36000,42000,54469];
 var myRenderer = L.canvas({ padding: 0.5 });
@@ -11,11 +10,6 @@ var LayerDotMap,LayerTaxi,pontos,pontos2,pontos3;
 var dots=[],dotsZ1=[],dotsZ2=[],dotsZ3=[],dotsTaxi=[],dotsZ1Taxi=[],dotsZ2Taxi=[],dotsZ3Taxi=[];
 
 //-- MAPA DE PONTOS DA ETAPA DE PERGUNTAS AO USUÁRIO. --
-//L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-//  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-//  maxZoom: 18,
-//  id: 'mapbox.streets',
-//  accessToken: 'pk.eyJ1IjoiZWRjbGV5OTQ1MiIsImEiOiJjamdvMGdmZ2owaTdiMndwYTJyM2tteTl2In0.2q25nBNRxzFxeaYahFGQ6g'
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png?', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
   subdomains: 'abcd',
@@ -49,7 +43,6 @@ function inicioDotMap(dataset){
   if (pontos2!=null) {
     pontos2.clearLayers();
   }
-  //dots = [];
   LayerDotMap =L.geoJson(dataset,
     {
       style: function(feature){
@@ -137,7 +130,6 @@ function Vis03TutorialFunction(dataset){
     layerTuto3.clearLayers();
     pontos.clearLayers();
   }
-  //dots = [];
   layerTuto3 =L.geoJson(dataset,
     {
       style: function(feature){
@@ -201,47 +193,30 @@ function InicioDot(){
     onEachFeature: async function (feature, layer) {
         await sleep(3000);
         novaDist= dotMapPrep(getDis(feature.properties.name));
-        
-        //console.log(Math.max.apply(Math, getDis(feature.properties.name)));
         bounds = layer.getBounds();
         width = Math.abs(bounds._northEast.lng - bounds._southWest.lng);
         height = Math.abs(bounds._northEast.lat - bounds._southWest.lat);
         area= (turf.area(feature.geometry)/10000000);     
-        //area= area/3;
           xMin = Infinity;
           yMin = Infinity;
           xMax = -Infinity;
           yMax = -Infinity;
-        /*var LatLngs=layer.getLatLngs()[0];  
-        LatLngs.forEach(p=>{
-          var nova= map.unproject([p.lat,p.lng]);
-          p.lat=nova.lat;
-          p.lng=nova.lng;
-        });*/
-        
         layer.getLatLngs()[0].forEach(function(p,i){
             if (p.lat<xMin) xMin = p.lat;
             if (p.lat>xMax) xMax = p.lat;
             if (p.lng<yMin) yMin = p.lng;
             if (p.lng>yMax) yMax = p.lng;
         });
-        var widthh = layer.getBounds().getNorth()-layer.getBounds().getSouth();//(xMax - xMin); 
-        var heightt = layer.getBounds().getEast()-layer.getBounds().getWest();//(yMax - yMin);
+        var widthh = layer.getBounds().getNorth()-layer.getBounds().getSouth();
+        var heightt = layer.getBounds().getEast()-layer.getBounds().getWest();
         var polygon=layer.getLatLngs()[0];
-        //console.log(widthh+'-'+heightt);
-                  //console.log(bounds);
-        //console.log(width+" "+height);
-        //console.log(feature.properties.name);
         var enveloped = turf.envelope(feature);
         var a=turf.bbox(enveloped);
-        var grid = turf.pointGrid(a,2);
-        //console.log(grid.features.length);
+        var grid = turf.pointGrid(a,2.4);
         var pointsGrid=[];
         grid.features.forEach(function(d){
             var aux=d.geometry.coordinates;
             var q=L.latLng(aux[1],aux[0]);
-            //if (leafletPip.pointInLayer(q, L.geoJSON(layer.toGeoJSON()), true).length > 0) {console.log('circulo dentro');}
-            //p = L.latLng(bounds._southWest.lat + Math.random() * height, bounds._southWest.lng + Math.random() * width);
             if (leafletPip.pointInLayer(q, L.geoJSON(layer.toGeoJSON()), true).length > 0) {
               pointsGrid.push(q);
             }
@@ -260,8 +235,7 @@ function InicioDot(){
                 dotsZ1.push(L.circleMarker(pointsGrid[i], {radius: 2.2, weight: 1,fillColor: cor,fillOpacity:1, color: cor,renderer: myRenderer}));
                 dotsZ2.push(L.circleMarker(pointsGrid[i], {radius: 3.0, weight: 1,fillColor: cor,fillOpacity:1, color: cor,renderer: myRenderer}));
                 dotsZ3.push(L.circleMarker(pointsGrid[i], {radius: 4.6, weight: 1,fillColor: cor,fillOpacity:1, color: cor,renderer: myRenderer}));
-                pdisponiveis--; 
-                //indice++;              
+                pdisponiveis--;            
               }
           }
           indice+=limite;
@@ -303,7 +277,6 @@ function inicioTaxi(dataset){
   if (pontos3!=null) {
     pontos3.clearLayers();
   }
-  //dots = [];
   LayerTaxi =L.geoJson(datasettaxi,
     {
       style: function(feature){
@@ -366,46 +339,30 @@ function inicioDotTaxi(){
     onEachFeature: async function (feature, layer) {
         await sleep(3000);
         novaDist= dotMapPrep(distribuicaoNYC(feature.properties.OBJECTID));
-        //console.log(Math.max.apply(Math, getDis(feature.properties.name)));
         bounds = layer.getBounds();
         width = Math.abs(bounds._northEast.lng - bounds._southWest.lng);
         height = Math.abs(bounds._northEast.lat - bounds._southWest.lat);
         area= (turf.area(feature.geometry)/10000000);     
-        //area= area/3;
           xMin = Infinity;
           yMin = Infinity;
           xMax = -Infinity;
           yMax = -Infinity;
-        /*var LatLngs=layer.getLatLngs()[0];  
-        LatLngs.forEach(p=>{
-          var nova= map.unproject([p.lat,p.lng]);
-          p.lat=nova.lat;
-          p.lng=nova.lng;
-        });*/
-        
         layer.getLatLngs()[0].forEach(function(p,i){
             if (p.lat<xMin) xMin = p.lat;
             if (p.lat>xMax) xMax = p.lat;
             if (p.lng<yMin) yMin = p.lng;
             if (p.lng>yMax) yMax = p.lng;
         });
-        var widthh = layer.getBounds().getNorth()-layer.getBounds().getSouth();//(xMax - xMin); 
-        var heightt = layer.getBounds().getEast()-layer.getBounds().getWest();//(yMax - yMin);
+        var widthh = layer.getBounds().getNorth()-layer.getBounds().getSouth();
+        var heightt = layer.getBounds().getEast()-layer.getBounds().getWest();
         var polygon=layer.getLatLngs()[0];
-        //console.log(widthh+'-'+heightt);
-                  //console.log(bounds);
-        //console.log(width+" "+height);
-        //console.log(feature.properties.name);
         var enveloped = turf.envelope(feature);
         var a=turf.bbox(enveloped);
         var grid = turf.pointGrid(a,0.1);
-        //console.log(grid.features.length);
         var pointsGrid=[];
         grid.features.forEach(function(d){
             var aux=d.geometry.coordinates;
             var q=L.latLng(aux[1],aux[0]);
-            //if (leafletPip.pointInLayer(q, L.geoJSON(layer.toGeoJSON()), true).length > 0) {console.log('circulo dentro');}
-            //p = L.latLng(bounds._southWest.lat + Math.random() * height, bounds._southWest.lng + Math.random() * width);
             if (leafletPip.pointInLayer(q, L.geoJSON(layer.toGeoJSON()), true).length > 0) {
               pointsGrid.push(q);
             }
@@ -424,8 +381,7 @@ function inicioDotTaxi(){
                 dotsZ1Taxi.push(L.circleMarker(pointsGrid[i], {radius: 2.2, weight: 1,fillColor: cor,fillOpacity:1, color: cor,renderer: myRendererTaxi}));
                 dotsZ2Taxi.push(L.circleMarker(pointsGrid[i], {radius: 3.0, weight: 1,fillColor: cor,fillOpacity:1, color: cor,renderer: myRendererTaxi}));
                 dotsZ3Taxi.push(L.circleMarker(pointsGrid[i], {radius: 4.6, weight: 1,fillColor: cor,fillOpacity:1, color: cor,renderer: myRendererTaxi}));
-                pdisponiveis--; 
-                //indice++;              
+                pdisponiveis--;              
               }
           }
           indice+=limite;
