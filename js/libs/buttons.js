@@ -269,10 +269,10 @@ $(document).ready(function () {
 		id=id.substring(0, 4);
 		var p=findP(novodataset,id);
 		p=p.highlights;
-		opcoes=[];
 		p.forEach(function(d,i){
 			opcoes.push(d);
 		});
+		opcoes=[];		
 		if(base=='C'){
 			$('#chuvaview').show();
 			$('#taxiview').hide();
@@ -296,8 +296,7 @@ $(document).ready(function () {
 				$(this).parent().parent()[0].classList.add('was-validated');
 			}else if($('#'+entid).val()==undefined && $('#'+entid).children().length>0){
 				$(this).parent().parent()[0].classList.add('was-validated');
-			}else{
-			   	opcoes=[];	   	
+			}else{   	
 			   	stepper3.next();
 			   	$(this).parent().parent().removeClass("was-validated");
 			   	var id= $(this).parent().next().find('div >div > div>').siblings()[0].id;
@@ -308,6 +307,7 @@ $(document).ready(function () {
 			    p.forEach(function(d,i){
 			    	opcoes.push(d);
 			    });
+			    opcoes=[];
 				if(base=='C'){
 					$('#chuvaview').show();
 					$('#taxiview').hide();
@@ -324,7 +324,7 @@ $(document).ready(function () {
 				diff = Math.abs(d1-d2)/1000;
 				$(this).parent().find('.form-group > div >.tempo')[0].value = (Math.round((diff/60)*100)/100);
 				clicks=-1;
-				d1 = new Date();		
+				d1 = new Date();			
 			}
 		}else{
 			//VALIDA O FORM COM INFORMAÇÕES PESSOAIS
@@ -355,10 +355,10 @@ $(document).ready(function () {
 				id=id.substring(0, 4);
 				var p=findP(novodataset,id);
 			   	p=p.highlights;
-				opcoes=[];
 				p.forEach(function(d,i){
 					opcoes.push(d);
 				});
+				opcoes=[];
 				if(base=='C'){
 					$('#chuvaview').show();
 					$('#taxiview').hide();
